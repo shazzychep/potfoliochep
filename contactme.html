@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Me </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Index.html"><h2>Sharon Cheptoo</h2></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"></li>
+                        <a class="nav-link" href="/Index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/aboutme.html">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/Myprojects.html">My Projects</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-5 pt-5">
+        <section id="contact"  class="contact-content">
+            <h2>Contact Me</h2>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="iframeLoaded()"></iframe>
+            <p>
+                <strong>Phone Number:</strong> 0746487144<br>
+                <strong>Email:</strong> sharoncheptoo144@gmail.com<br>
+            </p>
+                <div class="mb-3">
+                    <form method="post" action="https://script.google.com/macros/s/AKfycbzEUvW32qyJeKhLP-Hg3A97hNulaDhB2CGJMt7NuNI3b8SNGePTK7GYsuLRiStXIFCwPA/exec" target="hidden_iframe" onsubmit="formSubmitted(event);">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>   
+                    </form>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sharon Cheptoo. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script>
+        var submitted = false;
+
+        function formSubmitted(event) {
+            submitted = true;
+
+            // Change button to 'Sending' state
+            var submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true; // Disable the button to prevent multiple submissions
+            submitBtn.value = 'Sending...';
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending';
+        }
+
+        function iframeLoaded() {
+            if (submitted) {
+                submitted = false; // Reset the flag
+
+                // Alert the user
+                alert('Your details have been successfully submitted.');
+
+                // Reset the button to its original state
+                var submitBtn = document.getElementById('submitBtn');
+                submitBtn.disabled = false; // Re-enable the button
+                submitBtn.value = 'Send Message';
+                submitBtn.innerHTML = 'Send Message';
+
+                // Redirect to the home page
+                window.location.href = '/';
+            }
+        }
+</script>
+</body>
+</html>
